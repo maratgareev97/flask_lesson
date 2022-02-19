@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/" method="POST">
+{% for i in rows %}
+    <hr>
+    <label>{{i[0]}} | {{i[1]}} | {{i[2]}}</label>
+    <input type="radio" name="display_type" value="check{{i[0]}}">
+{% endfor %}
+<br><input type="submit" value= "выбрать" name="choose"></br>
+    <input type="submit" value = "Добавить" name="add">
+</form>
+
+
+<!--
+<form action="/" method="post">
+    <label for="l_box1"><input type="radio" name="display_type" value="locationbox" id="l_box1">Display Location</label>
+    <label for="d_box2"><input type="radio" name="display_type" value="displaybox" id="d_box2"> Display Direction</label>
+    <input type="submit">-->
+</form>
+</body>
+</html>

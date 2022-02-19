@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>booook</title>
+</head>
+<body>
+<h1 align="center"> Записная книгга </h1>
+
+<form action="/" method="post">
+    <label> Введите имя </label>
+    <input type="text" name="name" placeholder="сюда">
+    <br>
+    <br>
+    <label> Введите номер </label>
+    <input type="text" name="nomer" placeholder="сюда">
+    <br>
+    <br>
+    <input type="submit" value="Добавить">
+    <input type="button" value="Удалить">
+</form>
+<br>
+
+<table border=1>
+        <tr align="center">
+            <td>id</td>
+            <td>name</td>
+            <td>nomer</td>
+        </tr>
+
+        {% for k in colu %}
+            <tr align="center">
+             {% for i in k %}
+             <td>{{ i }}</td>
+             {% endfor %}
+            </tr>
+        {% endfor %}
+
+
+        <!--<tr align="center">
+          <td><b>№</b></td>
+          {% for i in colu %}
+            <td><b>{{ i }}</b></td>
+          {% endfor %}
+        </tr>
+
+        {% set j = 0 %}
+        {% set item = [] %}
+      {% for item in rows %}
+        <tr>
+          {% for j in range(26) %}
+            <td>{{ item[j] }}</td>
+          {% endfor %}
+
+        </tr>
+      {% endfor %}
+      </table>- -->
+
+</body>
+</html>

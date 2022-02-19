@@ -1,0 +1,42 @@
+import sqlite3
+from flask import Flask, render_template, request,redirect,url_for,send_file,flash, session, Response,g,session
+
+app = Flask(__name__)
+
+def createtable():
+    connect = sqlite3.connect('base/booook.db')
+
+    cursor = connect.cursor()
+    col_text = 'name'
+    col_int = 'nomer'
+
+    cursor.execute('CREATE TABLE "table1" (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,{} TEXT(1000), {} INTEGER);'.format(col_text, col_int))
+
+    connect.commit()
+    connect.close()
+
+@app.route('/', methods=["POST","GET"])
+def index():
+
+    connect = sqlite3.connect('base/booook.db')
+    cursor = connect.cursor()
+
+
+    if request.method == "POST":
+        name = request.form['name']
+        nomer = request.form['nomer']
+        cursor.execute("INSERT INTO 'table1' (name,nomer) VALUES(?,?)", (name, nomer))
+        connect.commit()
+        connect.close()
+
+        return redirect('/')
+
+
+
+    cursor.execute("SELECT * FROM 'table1'")
+    colu = cursor.fetchall()
+
+    return render_template('booook.html',colu=colu)
+
+
+app.run()

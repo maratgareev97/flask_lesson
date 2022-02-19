@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>booook</title>
+    <style>
+        #radio1 {
+    display: none;
+}
+    </style>
+</head>
+<body>
+<h1 align="center"> Записная книгга </h1>
+
+
+<br>
+<form action="/" method="post">
+    <label> Введите имя </label>
+    <input type="text" name="name" placeholder="сюда">
+    <br>
+    <br>
+    <label> Введите номер </label>
+    <input type="text" name="nomer" placeholder="сюда">
+    <br>
+    <br>
+    <input type="submit" value="Добавить" name="add">
+    <input type="submit" value="Удалить" name="delete">
+     <input type="submit" value="Редактировать" name="edit">
+    <br>
+    <br>
+
+    <table border=1>
+        <tr align="center">
+            <td>id</td>
+            <td>name</td>
+            <td>nomer</td>
+            <td>choose what u want to delete or edit</td>>
+        </tr>
+
+        {% for k in colu %}
+        <tr align="center">
+            {% for i in k %}
+            <td>{{ i }}</td>
+            {% endfor %}
+            <td><input type="radio" name="pick" value = {{ k }}></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <input id = "radio1" type="radio" checked="checked" name="pick" value = -1>
+
+</form>
+
+
+</body>
+</html>
